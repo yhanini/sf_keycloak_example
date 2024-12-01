@@ -17,7 +17,7 @@ In your browser, go to `https://sf-keycloak-example.ddev.site:8443/` and follow 
 ## Option (1) Import Keycloak configuration
 
 ```bash
-$ ddev kcctl export ddev
+$ ddev kcctl import ddev
 ```
 
 ## Option (2) Configure Keycloak manually
