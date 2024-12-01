@@ -1,21 +1,32 @@
 # Example of Symfony authentication with Keycloak server as SSO
 
-## Start Keycloak server
+## Install DDEV
+Install ddev cli: https://ddev.readthedocs.io/en/stable/users/install/ddev-installation/
 
-The application is intended to be used with a Keycloak server in a Docker container. To start it:
+Be sure that port 80 is not used by your system (sudo lsof -i -P -n | grep 80) otherwise stop it : service apache2 stop
+
+## Start DDEV
+
+The application is intended to be used with a Keycloak server in a DDEV stack. To start it:
 
 ```bash
-$ docker compose up -d
+$ ddev start
 ```
-Keycloak now runs on the arbitrary chosen port `52957`. In your browser, go to `http://localhost:52957/` and follow *Administration Console* link. The credentials are **admin**/**admin**.
+In your browser, go to `https://sf-keycloak-example.ddev.site:8443/` and follow *Administration Console* link. The credentials are **admin**/**password**.
 
-## Keycloak configuration
+## Option (1) Import Keycloak configuration
+
+```bash
+$ ddev kcctl export ddev
+```
+
+## Option (2) Configure Keycloak manually
 
 ### Client configuration
 
 First, let's create a new OpenId client. Go to the *Clients* link in the menu and use the *Create client* button. Use `symfony-app` as *Client ID* and keep `OpenID Connect` as *Client type*. Then, click on the *Next* button.
 
-On the *Capability config* screen, switch on the *Client authentication* toggle. Let the other settings unchanged and click on the *Next* button. On the *Login settings screen*, type `http://localhost:8000/redirect-uri` in *Valid Redirect URIs*. You can now save the configuration.
+On the *Capability config* screen, switch on the *Client authentication* toggle. Let the other settings unchanged and click on the *Next* button. On the *Login settings screen*, type `*` in *Valid Redirect URIs*. You can now save the configuration.
 
 You should now see all the `symfony-app` client settings. Go to the *Credentials* tab and copy the *Client Secret* field content somewhere. You are going to need it for the Symfony application configuration.
 
@@ -56,16 +67,16 @@ Add `KEYCLOAK_VERIFY_PEER=true` and `KEYCLOAK_VERIFY_HOST=true` by true if you w
 
 ## Start the Symfony application
 
-For the sake of simplicity, we use the [Symfony local web server](https://symfony.com/doc/5.4/setup/symfony_server.html). At least PHP 8.0 is needed to run the application. Start the server:
+SSH console:
 
 ```bash
-$ symfony serve -d --no-tls
+$ ddev ssh 
 ```
 
 Then, install the dependencies:
 
 ```bash
-$ symfony composer install
+$ composer install
 ```
 
-You can now go to `http://localhost:8000` in your browser and try to login into the application with the user account you previously created :)
+You can now go to `https://sf-keycloak-example.ddev.site` in your browser and try to login into the application with the user account you previously created :)

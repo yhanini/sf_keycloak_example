@@ -1,0 +1,27 @@
+{
+  "realm" : "ddev",
+  "users" : [ {
+    "id" : "688827c0-2932-4382-ab00-242f624f0869",
+    "createdTimestamp" : 1733069610760,
+    "username" : "user1",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "User 1",
+    "lastName" : "User 1",
+    "email" : "user1@local.local",
+    "credentials" : [ {
+      "id" : "adf0dff0-a262-4d36-bf16-549b04f9b44c",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1733069626721,
+      "secretData" : "{\"value\":\"Ivwuf3M5GUVJRpU39oOJEeHta/0tqFEQ+POurn9Yelo=\",\"salt\":\"y2n9EZrdx3MpwvjRLjsIQA==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "ROLE_USER", "default-roles-ddev" ],
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}
