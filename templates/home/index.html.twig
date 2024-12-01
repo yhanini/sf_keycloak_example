@@ -3,7 +3,7 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <p>Keycloak admin: <a href="{{ keycloakHome }}">{{ keycloakHome }}</a> (admin / admin)</p>
+    <p>Keycloak admin: <a href="{{ keycloakHome }}">{{ keycloakHome }}</a> (admin / password)</p>
     {% if app.user is null %}
     <p>
         <a href="{{ path('profile') }}" class="btn btn-dark">Connect with Openid</a>

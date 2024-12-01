@@ -109,14 +109,12 @@ class OpenIdAuthenticator extends AbstractAuthenticator implements Authenticatio
     {
         $state = (string)Uuid::v4();
         $request->getSession()->set(self::STATE_SESSION_KEY, $state);
-
         $qs = http_build_query([
             'client_id' => $this->clientId,
             'response_type' => 'code',
             'state' => $state,
             'scope' => 'openid roles profile email',
-            // Force http since working on localhost
-            'redirect_uri' => 'http:'.$this->urlGenerator->generate('openid_redirecturi', [], UrlGeneratorInterface::NETWORK_PATH),
+            'redirect_uri' => $this->urlGenerator->generate('openid_redirecturi', [], UrlGeneratorInterface::ABSOLUTE_URL),
         ]);
 
         return new RedirectResponse(sprintf('%s?%s', $this->authorizationEndpoint, $qs));

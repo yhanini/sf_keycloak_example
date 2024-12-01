@@ -26,7 +26,7 @@ $ ddev kcctl export ddev
 
 First, let's create a new OpenId client. Go to the *Clients* link in the menu and use the *Create client* button. Use `symfony-app` as *Client ID* and keep `OpenID Connect` as *Client type*. Then, click on the *Next* button.
 
-On the *Capability config* screen, switch on the *Client authentication* toggle. Let the other settings unchanged and click on the *Next* button. On the *Login settings screen*, type `*` in *Valid Redirect URIs*. You can now save the configuration.
+On the *Capability config* screen, switch on the *Client authentication* toggle. Let the other settings unchanged and click on the *Next* button. On the *Login settings screen*, type `https://sf-keycloak-example.ddev.site/redirect-uri` in *Valid Redirect URIs*. You can now save the configuration.
 
 You should now see all the `symfony-app` client settings. Go to the *Credentials* tab and copy the *Client Secret* field content somewhere. You are going to need it for the Symfony application configuration.
 
