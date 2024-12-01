@@ -79,4 +79,4 @@ Then, install the dependencies:
 $ composer install
 ```
 
-You can now go to `https://sf-keycloak-example.ddev.site` in your browser and try to login into the application with the user account you previously created :)
+You can now go to `https://sf-keycloak-example.ddev.site` in your browser and try to login into the application with "login : user1 / password : user1" or the user account you previously created manually :)
