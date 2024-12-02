@@ -3,7 +3,7 @@ services:
   keycloak:
     container_name: ddev-${DDEV_SITENAME}-keycloak
     hostname: ${DDEV_SITENAME}-keycloak
-    image: quay.io/keycloak/keycloak:23.0
+    image: quay.io/keycloak/keycloak:25.0
     command: start-dev --proxy edge --import-realm
     labels:
       com.ddev.site-name: ${DDEV_SITENAME}
