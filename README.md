@@ -14,13 +14,23 @@ $ ddev start
 ```
 In your browser, go to `https://sf-keycloak-example.ddev.site:8443/` and follow *Administration Console* link. The credentials are **admin**/**password**.
 
-## Option (1) Import Keycloak configuration
+## Option (1) Import Keycloak configuration (Not required)
+
+The default configuration of "ddev" realm is already imported when the ddev started
+In case of changing files in .ddev/keycloak/import/*., use ddev kcctl to import, export or delete realm and users :
 
 ```bash
-$ ddev kcctl import ddev
+$ ddev kcctl --help
 ```
 
-## Option (2) Configure Keycloak manually
+## Option (2) Configure Keycloak manually (Not required)
+
+The default configuration of "ddev" realm is already imported when the ddev started
+
+### Create Realm
+
+First, let's create a new Realm. Click on select box on the left menu and then click on Create Realm.
+Type a new realm name. In our example we set ddev as realm. Fill free de change the realm name. Do not forger to change the word ddev in KEYCLOAK_BASE value in your .env.
 
 ### Client configuration
 
